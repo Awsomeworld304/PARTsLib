@@ -68,7 +68,7 @@ publishing {
          groupId = (findProperty('group') ?: 'com.github.3492PARTs')
          version = (findProperty('version') ?: '0.0.0-SNAPSHOT')
          description = "PARTs Utility Library"
-         artifactId = 'library'
+         artifactId = 'PARTsLib'
 
          from components.java
       }
