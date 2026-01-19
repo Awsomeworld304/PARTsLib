@@ -12,7 +12,8 @@ plugins {
    id "com.github.spotbugs" version "5.2.0"
 }
 
-group = 'com.github.3492PARTs'
+group = (findProperty('group') ?: 'com.github.3492PARTs')
+version = (findProperty('version') ?: '0.0.0-SNAPSHOT')
 
 java {
    sourceCompatibility = JavaVersion.VERSION_17
@@ -64,7 +65,6 @@ publishing {
    publications {
       maven(MavenPublication) {
          artifactId = 'library'
-         version = "${version}"
 
          from components.java
       }
