@@ -37,7 +37,7 @@ public class PARTsCommandController {
                 controllerType = ControllerType.OTHER;
             }
         } else {
-            controllerType = ControllerType.XBOX;
+            controllerType = ControllerType.OTHER;
         }
         initialize(port);
     }
@@ -56,7 +56,7 @@ public class PARTsCommandController {
                 dualsenseController = new CommandPS5Controller(port);
                 break;
             case OTHER:
-                joystick = new CommandJoystick(port);
+                //joystick = new CommandJoystick(port);
                 break;
             case XBOX:
                 xboxController = new CommandXboxController(port);
