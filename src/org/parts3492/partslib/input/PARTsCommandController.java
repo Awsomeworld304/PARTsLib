@@ -89,7 +89,11 @@ public class PARTsCommandController {
      *     loop.
      */
     public Trigger a(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.cross(loop);
@@ -127,7 +131,11 @@ public class PARTsCommandController {
      *     loop.
      */
     public Trigger b(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.circle(loop);
@@ -165,7 +173,11 @@ public class PARTsCommandController {
      *     loop.
      */
     public Trigger x(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.square(loop);
@@ -203,7 +215,11 @@ public class PARTsCommandController {
      *     loop.
      */
     public Trigger y(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.triangle(loop);
@@ -241,7 +257,11 @@ public class PARTsCommandController {
      *     the given loop.
      */
     public Trigger leftBumper(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.L1(loop);
@@ -279,7 +299,11 @@ public class PARTsCommandController {
      *     the given loop.
      */
     public Trigger rightBumper(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.R1(loop);
@@ -288,7 +312,11 @@ public class PARTsCommandController {
                 val = dualsenseController.R1(loop);
                 break;
             case OTHER:
-                val = new Trigger(() -> { return false; });
+                val =
+                        new Trigger(
+                                () -> {
+                                    return false;
+                                });
             case XBOX:
                 val = xboxController.rightBumper(loop);
                 break;
@@ -317,7 +345,11 @@ public class PARTsCommandController {
      *     given loop.
      */
     public Trigger back(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.share(loop);
@@ -353,7 +385,11 @@ public class PARTsCommandController {
      *     given loop.
      */
     public Trigger start(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.options(loop);
@@ -391,7 +427,11 @@ public class PARTsCommandController {
      *     the given loop.
      */
     public Trigger leftStick(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.L3(loop);
@@ -429,7 +469,11 @@ public class PARTsCommandController {
      *     the given loop.
      */
     public Trigger rightStick(EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.R3(loop);
@@ -459,7 +503,11 @@ public class PARTsCommandController {
      *     threshold, attached to the given event loop
      */
     public Trigger leftTrigger(double threshold, EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.L2(loop);
@@ -514,7 +562,11 @@ public class PARTsCommandController {
      *     threshold, attached to the given event loop
      */
     public Trigger rightTrigger(double threshold, EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.R2(loop);
@@ -738,7 +790,11 @@ public class PARTsCommandController {
      * @return a Trigger instance based around this angle of a POV on the HID.
      */
     public Trigger pov(int pov, int angle, EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.pov(pov, angle, loop);
@@ -881,7 +937,11 @@ public class PARTsCommandController {
      *     threshold.
      */
     public Trigger axisLessThan(int axis, double threshold, EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.axisLessThan(axis, threshold, loop);
@@ -926,7 +986,11 @@ public class PARTsCommandController {
      *     threshold.
      */
     public Trigger axisGreaterThan(int axis, double threshold, EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.axisGreaterThan(axis, threshold, loop);
@@ -956,7 +1020,11 @@ public class PARTsCommandController {
      *     provided threshold.
      */
     public Trigger axisMagnitudeGreaterThan(int axis, double threshold, EventLoop loop) {
-        Trigger val = new Trigger(() -> { return false; });
+        Trigger val =
+                new Trigger(
+                        () -> {
+                            return false;
+                        });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.axisMagnitudeGreaterThan(axis, threshold, loop);
