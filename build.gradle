@@ -64,6 +64,10 @@ dependencies {
 publishing {
    publications {
       maven(MavenPublication) {
+         // See if forcing the groupId here keeps it from malforming the POM.
+         groupId = (findProperty('group') ?: 'com.github.3492PARTs')
+         version = (findProperty('version') ?: '0.0.0-SNAPSHOT')
+         description = "PARTs Utility Library"
          artifactId = 'library'
 
          from components.java
