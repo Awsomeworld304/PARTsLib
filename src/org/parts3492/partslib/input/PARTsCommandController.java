@@ -89,7 +89,7 @@ public class PARTsCommandController {
      *     loop.
      */
     public Trigger a(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.cross(loop);
@@ -98,12 +98,12 @@ public class PARTsCommandController {
                 val = dualsenseController.cross(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.a(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -127,7 +127,7 @@ public class PARTsCommandController {
      *     loop.
      */
     public Trigger b(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.circle(loop);
@@ -136,12 +136,12 @@ public class PARTsCommandController {
                 val = dualsenseController.circle(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.b(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -165,7 +165,7 @@ public class PARTsCommandController {
      *     loop.
      */
     public Trigger x(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.square(loop);
@@ -174,12 +174,12 @@ public class PARTsCommandController {
                 val = dualsenseController.square(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.x(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -203,7 +203,7 @@ public class PARTsCommandController {
      *     loop.
      */
     public Trigger y(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.triangle(loop);
@@ -212,12 +212,12 @@ public class PARTsCommandController {
                 val = dualsenseController.triangle(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.y(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -241,7 +241,7 @@ public class PARTsCommandController {
      *     the given loop.
      */
     public Trigger leftBumper(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.L1(loop);
@@ -250,12 +250,12 @@ public class PARTsCommandController {
                 val = dualsenseController.L1(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.leftBumper(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -279,7 +279,7 @@ public class PARTsCommandController {
      *     the given loop.
      */
     public Trigger rightBumper(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.R1(loop);
@@ -288,12 +288,12 @@ public class PARTsCommandController {
                 val = dualsenseController.R1(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                val = new Trigger(() -> { return false; });
             case XBOX:
                 val = xboxController.rightBumper(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -317,19 +317,19 @@ public class PARTsCommandController {
      *     given loop.
      */
     public Trigger back(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
-                throw new UnsupportedOperationException(err_msg);
+                val = dualshockController.share(loop);
             case DS5:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.back(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -353,7 +353,7 @@ public class PARTsCommandController {
      *     given loop.
      */
     public Trigger start(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.options(loop);
@@ -362,12 +362,12 @@ public class PARTsCommandController {
                 val = dualsenseController.options(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.start(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -391,7 +391,7 @@ public class PARTsCommandController {
      *     the given loop.
      */
     public Trigger leftStick(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.L3(loop);
@@ -400,12 +400,12 @@ public class PARTsCommandController {
                 val = dualsenseController.L3(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.leftStick(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -429,7 +429,7 @@ public class PARTsCommandController {
      *     the given loop.
      */
     public Trigger rightStick(EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.R3(loop);
@@ -438,12 +438,12 @@ public class PARTsCommandController {
                 val = dualsenseController.R3(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.rightStick(loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -459,7 +459,7 @@ public class PARTsCommandController {
      *     threshold, attached to the given event loop
      */
     public Trigger leftTrigger(double threshold, EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.L2(loop);
@@ -468,12 +468,12 @@ public class PARTsCommandController {
                 val = dualsenseController.L2(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.leftTrigger(threshold, loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -514,7 +514,7 @@ public class PARTsCommandController {
      *     threshold, attached to the given event loop
      */
     public Trigger rightTrigger(double threshold, EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.R2(loop);
@@ -523,12 +523,12 @@ public class PARTsCommandController {
                 val = dualsenseController.R2(loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.rightTrigger(threshold, loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -573,12 +573,12 @@ public class PARTsCommandController {
                 val = dualsenseController.getLeftX();
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.getLeftX();
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -598,12 +598,12 @@ public class PARTsCommandController {
                 val = dualsenseController.getRightX();
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.getRightX();
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -623,12 +623,12 @@ public class PARTsCommandController {
                 val = dualsenseController.getLeftY();
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.getLeftY();
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -648,12 +648,12 @@ public class PARTsCommandController {
                 val = dualsenseController.getRightY();
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.getRightY();
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -674,12 +674,12 @@ public class PARTsCommandController {
                 val = dualsenseController.getL2Axis();
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.getLeftTriggerAxis();
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -700,12 +700,12 @@ public class PARTsCommandController {
                 val = dualsenseController.getR2Axis();
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.getRightTriggerAxis();
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -738,7 +738,7 @@ public class PARTsCommandController {
      * @return a Trigger instance based around this angle of a POV on the HID.
      */
     public Trigger pov(int pov, int angle, EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.pov(pov, angle, loop);
@@ -747,12 +747,12 @@ public class PARTsCommandController {
                 val = dualsenseController.pov(pov, angle, loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.pov(pov, angle, loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -881,7 +881,7 @@ public class PARTsCommandController {
      *     threshold.
      */
     public Trigger axisLessThan(int axis, double threshold, EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.axisLessThan(axis, threshold, loop);
@@ -890,12 +890,12 @@ public class PARTsCommandController {
                 val = dualsenseController.axisLessThan(axis, threshold, loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.axisLessThan(axis, threshold, loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -926,7 +926,7 @@ public class PARTsCommandController {
      *     threshold.
      */
     public Trigger axisGreaterThan(int axis, double threshold, EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.axisGreaterThan(axis, threshold, loop);
@@ -935,12 +935,12 @@ public class PARTsCommandController {
                 val = dualsenseController.axisGreaterThan(axis, threshold, loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.axisGreaterThan(axis, threshold, loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
@@ -956,7 +956,7 @@ public class PARTsCommandController {
      *     provided threshold.
      */
     public Trigger axisMagnitudeGreaterThan(int axis, double threshold, EventLoop loop) {
-        Trigger val;
+        Trigger val = new Trigger(() -> { return false; });
         switch (controllerType) {
             case DS4:
                 val = dualshockController.axisMagnitudeGreaterThan(axis, threshold, loop);
@@ -965,12 +965,12 @@ public class PARTsCommandController {
                 val = dualsenseController.axisMagnitudeGreaterThan(axis, threshold, loop);
                 break;
             case OTHER:
-                throw new UnsupportedOperationException(err_msg);
+                break;
             case XBOX:
                 val = xboxController.axisMagnitudeGreaterThan(axis, threshold, loop);
                 break;
             default:
-                throw new UnsupportedOperationException(err_msg);
+                break;
         }
         return val;
     }
