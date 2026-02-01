@@ -10,14 +10,17 @@ import java.util.function.Function;
 public class PARTsUnit {
 
     public enum PARTsUnitType {
-        Angle, // Degrees. todo: change to degree?
+        /** Degrees. */
+        Angle, // TODO: change to degree?
         Radian,
         Meter,
         Inch,
         Foot,
         Percent,
         Rotations,
-        MetersPerSecond
+        MetersPerSecond,
+        Pound,
+        Kilogram
     }
 
     private double value;
@@ -73,9 +76,14 @@ public class PARTsUnit {
         String message = "No to type for unit.";
         switch (this.unitType) {
             case Angle:
-                if (unitType == PARTsUnitType.Radian) return this.value * Math.PI / 180.0;
-                else if (unitType == this.unitType) return this.value;
-                throw new RuntimeException(message);
+                switch (unitType) {
+                    case Radian:
+                        return this.value * Math.PI / 180.0;
+                    case Angle:
+                        return this.value;
+                    default:
+                        throw new RuntimeException(message);
+                }
             case Radian:
                 if (unitType == PARTsUnitType.Angle) return this.value * 180.0 / Math.PI;
                 else if (unitType == this.unitType) return this.value;
@@ -117,12 +125,37 @@ public class PARTsUnit {
                 switch (unitType) {
                     case Angle:
                         return this.value * 360;
+                    case Rotations:
+                        return this.value;
                     default:
                         throw new RuntimeException(message);
                 }
             case Percent:
-                throw new RuntimeException(
-                        message + " Percent cannot not be translated to any other type.");
+                switch (unitType) {
+                    case Percent:
+                        return this.value;
+                    default:
+                        throw new RuntimeException(
+                                message + " Percent cannot not be translated to any other type.");
+                }
+            case Pound:
+                switch (unitType) {
+                    case Kilogram:
+                        return this.value * 0.453592;
+                    case Pound:
+                        return this.value;
+                    default:
+                        throw new RuntimeException(message);
+                }
+            case Kilogram:
+                switch (unitType) {
+                    case Pound:
+                        return this.value * 2.2046226218;
+                    case Kilogram:
+                        return this.value;
+                    default:
+                        throw new RuntimeException(message);
+                }
             default:
                 throw new RuntimeException(message);
         }
