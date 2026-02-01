@@ -2,7 +2,7 @@
 /* This work is licensed under the terms of the license */
 /* found in the root directory of this project. */
 
-package org.parts3492.partslib;
+package org.parts3492.partslib.game;
 
 import edu.wpi.first.math.geometry.Pose3d;
 
