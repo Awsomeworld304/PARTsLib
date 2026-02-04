@@ -1,0 +1,51 @@
+name: Deploy Javadocs
+
+on:
+  push:
+    branches:
+      - master
+    
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  JAVA_VERSION: 1.17
+  GRADLE_VERSION: 8.12.1
+
+jobs:
+  pages:
+    name: Deploy Javadocs
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Build Javadocs - Gradle ${{ env.GRADLE_VERSION }}
+        uses: gradle/gradle-build-action@v2.11.1
+        with:
+          arguments: javadoc -Pversion=${{ github.event.release.tag_name }}
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v2.0.0
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4.0.0
+        with:
+          path: './docs/'
+          name: github-pages
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.3
+        with:
+          artifact_name: github-pages
